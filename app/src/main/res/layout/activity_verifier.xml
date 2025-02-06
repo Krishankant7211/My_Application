@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/verifier2">
+
+
+
+
+    <TextView
+        android:id="@+id/VerifierWelcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello! Verifier"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_gravity="left|center"
+        android:layout_marginBottom="8dp" />
+
+
+    <TextView
+        android:id="@+id/verifierNameText"
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="italic" />
+
+
+    <ImageView
+        android:id="@+id/verifierProfileImage"
+        android:layout_width="130dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:padding="4dp" />
+
+    <TextView
+        android:id="@+id/verifierEmailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="32dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+
+    <TextView
+        android:id="@+id/navigation_menu"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginBottom="8dp"
+        android:text="Your Navigation Menu:"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+
+
+
+    <Button
+        android:id="@+id/CheckdocsButton"
+        android:layout_width="235dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:layout_margin="8dp"
+        android:backgroundTint="@color/dark_blue"
+        android:text="Check Documents"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+
+    <Button
+        android:id="@+id/documentReportButton"
+        android:layout_width="235dp"
+        android:layout_height="50dp"
+        android:layout_margin="8dp"
+        android:backgroundTint="@color/dark_blue"
+        android:text="Document Reports"
+        android:textColor="@color/white"
+        android:layout_gravity="right"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+
+    <Button
+        android:id="@+id/settingButton"
+        android:layout_width="235dp"
+        android:layout_height="50dp"
+        android:layout_margin="8dp"
+        android:backgroundTint="@color/dark_blue"
+        android:text="Settings"
+        android:textColor="@color/white"
+        android:layout_gravity="right"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="235dp"
+        android:layout_height="50dp"
+        android:layout_margin="8dp"
+        android:backgroundTint="@color/dark_blue"
+        android:text="Log out"
+        android:textColor="@color/white"
+        android:layout_gravity="right"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+
+</LinearLayout>
+
+
+

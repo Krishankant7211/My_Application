@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <TextView
+            android:id="@+id/placementinvestigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Placement Investigation"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/generalinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="General Information"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            />
+
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:id="@+id/investigatoid"
+            android:hint="Investigation ID"
+            android:inputType="textPersonName"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            android:layout_marginTop="25dp"
+            />
+
+        <EditText
+            android:id="@+id/investigatorname"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:layout_marginTop="40dp"
+            android:hint="Investigator's Name"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+             />
+
+        <EditText
+            android:id="@+id/typeofplacement"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:hint="Type of placement"
+            android:inputType="text"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background" />
+
+        <TextView
+            android:id="@+id/candidatedetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Candidate Details"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            />
+
+        <EditText
+            android:id="@+id/candidatename"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:layout_marginTop="25dp"
+            android:hint="Candidate Name"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+             />
+
+
+        <EditText
+            android:id="@+id/dateofinvestigation"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:hint="Date of Investigation"
+            android:inputType="date"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background" />
+
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:id="@+id/candidatecontactinfo"
+            android:inputType="number"
+            android:hint="Candidate's Contact Information"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            android:layout_marginTop="40dp"
+            />
+
+        <EditText
+            android:id="@+id/educationalbackground"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="textLongMessage"
+            android:layout_marginTop="40dp"
+            android:hint="Educaational Background"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            />
+
+        <TextView
+            android:id="@+id/placementdetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Placement Details"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            />
+
+        <EditText
+            android:id="@+id/companyname"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:layout_marginTop="25dp"
+            android:hint="Company Name"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            />
+
+        <EditText
+            android:id="@+id/positionoffered"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:hint="Position Offered"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+             />
+
+        <EditText
+            android:id="@+id/dateofoffer"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:hint="Date of Offer"
+            android:inputType="date"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+             />
+
+
+        <EditText
+            android:id="@+id/locationofplacement"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="textLongMessage"
+            android:layout_marginTop="40dp"
+            android:hint="Location Of Placement"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+             />
+
+        <TextView
+            android:id="@+id/documentcollection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Document Collection"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            />
+
+        <EditText
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:id="@+id/typeofdocument"
+            android:inputType="text"
+            android:hint="Type of document"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            android:layout_marginTop="40dp"
+            />
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:id="@+id/otherprojectD1"
+            android:inputType="text"
+            android:hint="Other project document 1 (optional)"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            android:layout_marginTop="20dp"
+             />
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:id="@+id/otherprojectD2"
+            android:inputType="text"
+            android:hint="Other project document 2 (optional)"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:id="@+id/otherprojectvideo"
+            android:inputType="text"
+            android:hint="Other project video (optional)"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:id="@+id/otherformatdata"
+            android:inputType="text"
+            android:hint="Other format data upload (optional)"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            android:layout_marginTop="10dp"
+            />
+
+
+        <EditText
+            android:id="@+id/descriptionofevidence"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="textLongMessage"
+            android:layout_marginTop="20dp"
+            android:hint="Description Of Evidence"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+             />
+
+        <EditText
+            android:id="@+id/documentcollectedby"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:layout_marginTop="25dp"
+            android:hint="Document collected by "
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+             />
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:id="@+id/collectedbysign"
+            android:hint="Signature of collector"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            android:layout_marginTop="40dp"
+            />
+
+        <EditText
+            android:id="@+id/Evidancevarifiedby"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:layout_marginTop="25dp"
+            android:hint="Evidance varified by "
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+             />
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:id="@+id/varifiedbysign"
+            android:hint="Signature of varifier"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            android:layout_marginTop="40dp"
+            />
+
+        <TextView
+            android:id="@+id/interviewprocess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Interview Process"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            />
+
+        <EditText
+            android:id="@+id/numberofinterviewround"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:layout_marginTop="25dp"
+            android:hint="Number Of Interview Rounds"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+             />
+
+        <EditText
+            android:id="@+id/interviewername"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:layout_marginTop="25dp"
+            android:hint="Interviewer's Name"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            />
+
+        <EditText
+            android:id="@+id/interviewfeedback"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="textLongMessage"
+            android:layout_marginTop="25dp"
+            android:hint="Interview Feedback"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            />
+
+        <TextView
+            android:id="@+id/offerdetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Offer Details"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            />
+
+        <EditText
+            android:id="@+id/salaryoffered"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:layout_marginTop="25dp"
+            android:hint="Salary Offered"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+             />
+
+        <EditText
+            android:id="@+id/benifitsincluded"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="textLongMessage"
+            android:layout_marginTop="40dp"
+            android:hint="Benefits Included"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+             />
+
+
+        <EditText
+            android:id="@+id/contractduration"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:hint="Contract Duration"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            />
+
+        <TextView
+            android:id="@+id/candidatefeedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Candidate's Feedback"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            />
+
+        <EditText
+            android:id="@+id/experiencewithplacementprocess"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="textLongMessage"
+            android:layout_marginTop="40dp"
+            android:hint="Experience With The Placement Process"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            />
+
+        <EditText
+            android:id="@+id/satisfactionwiththeoffer"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:hint="Satisfaction With The Offer"
+            android:inputType="textLongMessage"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background" />
+
+        <EditText
+            android:id="@+id/additionalcomments"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="textLongMessage"
+            android:layout_marginTop="40dp"
+            android:hint="Additional Comments"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+             />
+
+        <TextView
+            android:id="@+id/additionalnotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Additional Notes"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            />
+
+        <EditText
+            android:id="@+id/additonalinfo"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:inputType="textLongMessage"
+            android:layout_marginTop="40dp"
+            android:hint="Additional Information"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+             />
+
+
+
+        <Button
+            android:id="@+id/makepdf"
+            android:layout_width="210dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="75dp"
+            android:backgroundTint="@color/white"
+            android:text="Make PDF"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:cornerRadius="2dp" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="210dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="75dp"
+            android:backgroundTint="@color/white"
+            android:text="SUBMIT"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:cornerRadius="2dp" />
+
+ 
+
+
+    </LinearLayout>
+
+</ScrollView>

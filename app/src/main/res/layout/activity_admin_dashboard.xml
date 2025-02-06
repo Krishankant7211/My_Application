@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/admin2">
+
+
+
+
+    <TextView
+        android:id="@+id/adminWelcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:text="Welcome, Admin"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+    <ImageView
+        android:id="@+id/adminProfileImage"
+        android:layout_width="130dp"
+        android:layout_height="150dp"
+
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+
+        android:padding="4dp" />
+    
+
+    <TextView
+        android:id="@+id/adminNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp" />
+
+
+
+    <TextView
+        android:id="@+id/adminEmailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textSize="16sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="28dp" />
+
+
+    <TextView
+        android:id="@+id/admin_operationsupport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginBottom="16dp"
+        android:text="Operations Support :-"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/manageUsersButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manage Users"
+        android:textStyle="italic"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/olympic_blue"
+        android:textColor="@android:color/white"
+        android:layout_margin="8dp" />
+
+
+
+
+    <Button
+        android:id="@+id/viewReportsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Reports"
+        android:backgroundTint="@color/olympic_blue"
+        android:textStyle="italic"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:layout_margin="8dp" />
+
+
+
+
+    <Button
+        android:id="@+id/settingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:backgroundTint="@color/olympic_blue"
+        android:textStyle="italic"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="8dp" />
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log Out"
+        android:textStyle="italic"
+        android:textSize="18sp"
+        android:backgroundTint="@color/olympic_blue"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="8dp" />
+
+
+</LinearLayout>
