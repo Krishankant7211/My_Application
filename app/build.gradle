@@ -33,12 +33,12 @@ android {
 
 dependencies {
 
-    implementation 'org.web3j:crypto:4.8.7'
-    implementation 'org.web3j:utils:4.8.7'
-    implementation 'org.web3j:core:4.8.7'
-    implementation 'org.web3j:core:4.9.7'
-    implementation 'com.itextpdf:itext7-core:7.1.15'
 
+    implementation 'com.itextpdf:itext7-core:7.2.5'
+    implementation 'org.web3j:core:4.8.7-android' // Web3j for Ethereum
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0' // Retrofit for API requests
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0' // Gson Converter
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3' // Logs for debugging
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity

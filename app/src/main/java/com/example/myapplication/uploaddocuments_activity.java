@@ -5,16 +5,28 @@ import android.content.Intent;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import android.widget.Toast;
 import java.util.HashMap;
 import java.util.Map;
-import org.web3j.protocol.Web3j;
-import org.web3j.protocol.http.HttpService;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,8 +37,9 @@ import java.util.Objects;
 
 public class uploaddocuments_activity extends AppCompatActivity {
 
-    private Web3j web3j;
+
     String hashofdata;
+    String pdfFileName;
     private EditText Investigatorid;
     private EditText Investigatorname;
     private EditText candidatecontactinfo;
@@ -70,8 +83,8 @@ public class uploaddocuments_activity extends AppCompatActivity {
     private static final int otherformatcode = 1000;
     private static final int collectedbycode = 1100;
     private static final int varifiedbycode = 1200;
+    private static final int STORAGE_PERMISSION_CODE = 100;
 
-    private BlockchainManager blockchainManager;
 
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -81,7 +94,6 @@ public class uploaddocuments_activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        web3j = Web3j.build(new HttpService("HTTP://127.0.0.1:7545"));  // Replace with your Ganache RPC URL
         setContentView(R.layout.activity_uploaddocuments);
 
 //        fields filled by the user
@@ -176,113 +188,83 @@ public class uploaddocuments_activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Map<String, String> UserFormData = new HashMap<>(); // ✅ Initialize HashMap
-                UserFormData.put("General information ","");
-                UserFormData.put("Investigator Name " , Investigatorname.getText().toString());
-                UserFormData.put("Investigator Id ", Investigatorid.getText().toString());
-                UserFormData.put("Date of Investigation ", dateofinvestigation.getText().toString());
-                UserFormData.put("Type of Placement ", typeofplacement.getText().toString());
-                UserFormData.put("Candidate Details ","");
-                UserFormData.put("Candidate Name ",candidatename.getText().toString());
-                UserFormData.put("Candidate Contact Information ", candidatecontactinfo.getText().toString());
-                UserFormData.put("Educational Backgroung ", educationalbackground.getText().toString());
-                UserFormData.put("Placement Details ","");
-                UserFormData.put("Company Name ",companyname.getText().toString());
-                UserFormData.put("Position Offered ",positionoffered.getText().toString());
-                UserFormData.put("Date of Offer ",dateofoffer.getText().toString());
-                UserFormData.put("Location of Placement ",locationofplacement.getText().toString());
-                UserFormData.put("Document collection","");
-//                yaha par documents wali files aayegi
-                UserFormData.put("Types of documents ",typesofdocuments.getText().toString());
-                UserFormData.put("Other Projects Document 1 ",otherprojectD1.getText().toString());
-                UserFormData.put("Other Projects Document 2 ",otherprojectD2.getText().toString());
-                UserFormData.put("Other Projects Video ",otherprojectvideo.getText().toString());
-                UserFormData.put("Other Format Data ",otherformatdata.getText().toString());
-                UserFormData.put("Collected By ",collectedbysign.getText().toString());
-                UserFormData.put("Varified By ",varifiedbysign.getText().toString());
-                UserFormData.put("Interview Process","");
-                UserFormData.put("Number of Interview Rounds",numberofinterviewround.getText().toString());
-                UserFormData.put("Interview's Name ",interviewername.getText().toString());
-                UserFormData.put("Interview Feedback ",interviewfeedback.getText().toString());
-                UserFormData.put("Offer Details ","");
-                UserFormData.put("Salary Offered " , salaryoffered.getText().toString());
-                UserFormData.put("Benefits Included " , banifitsincluded.getText().toString());
-                UserFormData.put("Contract Duration " , contractduration.getText().toString());
-                UserFormData.put(" Experience With the Placement Precess " , expwithplacementprocess.getText().toString());
-                UserFormData.put(" Satisfaction With the Offer " , satisfactionwithoffer.getText().toString());
-                UserFormData.put("Additional Comments " , additionalcomments.getText().toString());
-                UserFormData.put(" Additional Notes " , "");
-                UserFormData.put(" Additional Information " , additionalinfo.getText().toString());
-//              jitni files ho sari daal do
-//   jab tak class nahi ban jati tab tak ke liye commentout kar diya hai
-//                String pdfPath = PDFGenerator.generatePDF(this, UserFormData , otherprojectD1.getText().toString());
-
-//                if (pdfPath != null) {
-//                    Toast.makeText(uploaddocuments_activity.this, "PDF Generated: " + pdfPath, Toast.LENGTH_LONG).show();
-//                } else {
-//                    Toast.makeText(uploaddocuments_activity.this, "Error generating PDF", Toast.LENGTH_LONG).show();
-//                }
-
-            }
-        });
+//                Map<String, String> UserFormData = new HashMap<>(); // ✅ Initialize HashMap
+//                UserFormData.put("General information ","");
+//                UserFormData.put("Investigator Name " , Investigatorname.getText().toString());
+//                UserFormData.put("Investigator Id ", Investigatorid.getText().toString());
+//                UserFormData.put("Date of Investigation ", dateofinvestigation.getText().toString());
+//                UserFormData.put("Type of Placement ", typeofplacement.getText().toString());
+//                UserFormData.put("Candidate Details ","");
+//                UserFormData.put("Candidate Name ",candidatename.getText().toString());
+//                UserFormData.put("Candidate Contact Information ", candidatecontactinfo.getText().toString());
+//                UserFormData.put("Educational Backgroung ", educationalbackground.getText().toString());
+//                UserFormData.put("Placement Details ","");
+//                UserFormData.put("Company Name ",companyname.getText().toString());
+//                UserFormData.put("Position Offered ",positionoffered.getText().toString());
+//                UserFormData.put("Date of Offer ",dateofoffer.getText().toString());
+//                UserFormData.put("Location of Placement ",locationofplacement.getText().toString());
+//                UserFormData.put("Document collection","");
+////                yaha par documents wali files aayegi
+//                UserFormData.put("Types of documents ",typesofdocuments.getText().toString());
+//                UserFormData.put("Other Projects Document 1 ",otherprojectD1.getText().toString());
+//                UserFormData.put("Other Projects Document 2 ",otherprojectD2.getText().toString());
+//                UserFormData.put("Other Projects Video ",otherprojectvideo.getText().toString());
+//                UserFormData.put("Other Format Data ",otherformatdata.getText().toString());
+//                UserFormData.put("Collected By ",collectedbysign.getText().toString());
+//                UserFormData.put("Varified By ",varifiedbysign.getText().toString());
+//                UserFormData.put("Interview Process","");
+//                UserFormData.put("Number of Interview Rounds",numberofinterviewround.getText().toString());
+//                UserFormData.put("Interview's Name ",interviewername.getText().toString());
+//                UserFormData.put("Interview Feedback ",interviewfeedback.getText().toString());
+//                UserFormData.put("Offer Details ","");
+//                UserFormData.put("Salary Offered " , salaryoffered.getText().toString());
+//                UserFormData.put("Benefits Included " , banifitsincluded.getText().toString());
+//                UserFormData.put("Contract Duration " , contractduration.getText().toString());
+//                UserFormData.put(" Experience With the Placement Precess " , expwithplacementprocess.getText().toString());
+//                UserFormData.put(" Satisfaction With the Offer " , satisfactionwithoffer.getText().toString());
+//                UserFormData.put("Additional Comments " , additionalcomments.getText().toString());
+//                UserFormData.put(" Additional Notes " , "");
+//                UserFormData.put(" Additional Information " , additionalinfo.getText().toString());
 
 
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
+                // Add more strings as needed
 
-            public void onClick(View view) {
-                // Fetching inputs
-                String documentName = Investigatorname.getText().toString();
-                String documentHash = hashofdata;
+                // Create a unique file name with timestamp
+                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+                pdfFileName = "Form_" + timeStamp + ".pdf";
 
-                // Validate inputs
-                if (documentName == null || documentName.isEmpty()) {
-                    Toast.makeText(uploaddocuments_activity.this, "Please enter a document name", Toast.LENGTH_SHORT).show();
-                    return;
+                try {
+                    // Define the directory to save the PDF (e.g., Downloads folder)
+                    File directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+                    File file = new File(directory, pdfFileName);
+
+                    // Initialize PDF writer
+                    PdfWriter writer = new PdfWriter(file);
+                    PdfDocument pdf = new PdfDocument(writer);
+                    Document document = new Document(pdf);
+
+                    // Add content to the PDF
+                    document.add(new Paragraph("Form Data"));
+                    document.add(new Paragraph("Investigator name: " + Investigatorname.getText().toString()));
+                    document.add(new Paragraph("Investigator id : " + Investigatorid.getText().toString()));
+                    // Add more fields as needed
+
+                    // Close the document
+                    document.close();
+
+                    Toast.makeText(getApplicationContext(), "Pdf saved to " + file.getAbsolutePath() , Toast.LENGTH_SHORT).show();
+                    // Navigate back to dashboard
+                    finish();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error creating PDF: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
-
-                if (documentHash == null || documentHash.isEmpty()) {
-                    Toast.makeText(uploaddocuments_activity.this, "Hash of data is missing", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-
-
-                runOnUiThread(new Runnable() {
-                    /** @noinspection CallToPrintStackTrace*/
-                    @Override
-                    public void run() {
-
-                        // Initialize BlockchainManager
-                        BlockchainManager blockchainManager = new BlockchainManager(
-                                "HTTP://127.0.0.1:7545", // Replace with your blockchain's RPC URL
-                                "0x3E3507BD15f19c40B1ACc67105B24B3cE388668f" // Replace with your deployed contract address
-                        );
-
-                        try {
-                            // Submit data to blockchain
-                            blockchainManager.submitData(documentName, documentHash);
-                            Toast.makeText(uploaddocuments_activity.this, "Data submitted to blockchain!", Toast.LENGTH_SHORT).show();
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                            if (ex != null && ex.getMessage() != null) {
-                                Log.e("MyTag", ex.getMessage());
-                            } else {
-                                Log.e("MyTag", "An unknown error occurred");
-                            }
-//                            yaha par ek log thi jo hatayi thi check karne ke liye
-//                            Log.e("BlockchainError",  Objects.requireNonNull(ex.getMessage()));
-                            Log.d("BlockchainDebug", "Document Name: " + documentName);
-                            Log.d("BlockchainDebug", "Document Hash: " + documentHash);
-                            Toast.makeText(getApplicationContext(), "Error submitting data: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-                });
-
             }
-        });
 
+
+
+        });
 
 
     }
