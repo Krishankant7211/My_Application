@@ -127,7 +127,7 @@ public class uploaddocuments_activity extends AppCompatActivity {
         collectedbysign = findViewById(R.id.collectedbysign);
         varifiedbysign = findViewById(R.id.varifiedbysign);
 
-        makepdf = findViewById(R.id.makepdf);
+//        makepdf = findViewById(R.id.makepdf);
         submit = findViewById(R.id.submit);
         hashofdata = generateHash(String.valueOf(Investigatorname));
 
@@ -184,52 +184,11 @@ public class uploaddocuments_activity extends AppCompatActivity {
         });
 
 
-        makepdf.setOnClickListener(new View.OnClickListener() {
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-//                Map<String, String> UserFormData = new HashMap<>(); // ✅ Initialize HashMap
-//                UserFormData.put("General information ","");
-//                UserFormData.put("Investigator Name " , Investigatorname.getText().toString());
-//                UserFormData.put("Investigator Id ", Investigatorid.getText().toString());
-//                UserFormData.put("Date of Investigation ", dateofinvestigation.getText().toString());
-//                UserFormData.put("Type of Placement ", typeofplacement.getText().toString());
-//                UserFormData.put("Candidate Details ","");
-//                UserFormData.put("Candidate Name ",candidatename.getText().toString());
-//                UserFormData.put("Candidate Contact Information ", candidatecontactinfo.getText().toString());
-//                UserFormData.put("Educational Backgroung ", educationalbackground.getText().toString());
-//                UserFormData.put("Placement Details ","");
-//                UserFormData.put("Company Name ",companyname.getText().toString());
-//                UserFormData.put("Position Offered ",positionoffered.getText().toString());
-//                UserFormData.put("Date of Offer ",dateofoffer.getText().toString());
-//                UserFormData.put("Location of Placement ",locationofplacement.getText().toString());
-//                UserFormData.put("Document collection","");
-////                yaha par documents wali files aayegi
-//                UserFormData.put("Types of documents ",typesofdocuments.getText().toString());
-//                UserFormData.put("Other Projects Document 1 ",otherprojectD1.getText().toString());
-//                UserFormData.put("Other Projects Document 2 ",otherprojectD2.getText().toString());
-//                UserFormData.put("Other Projects Video ",otherprojectvideo.getText().toString());
-//                UserFormData.put("Other Format Data ",otherformatdata.getText().toString());
-//                UserFormData.put("Collected By ",collectedbysign.getText().toString());
-//                UserFormData.put("Varified By ",varifiedbysign.getText().toString());
-//                UserFormData.put("Interview Process","");
-//                UserFormData.put("Number of Interview Rounds",numberofinterviewround.getText().toString());
-//                UserFormData.put("Interview's Name ",interviewername.getText().toString());
-//                UserFormData.put("Interview Feedback ",interviewfeedback.getText().toString());
-//                UserFormData.put("Offer Details ","");
-//                UserFormData.put("Salary Offered " , salaryoffered.getText().toString());
-//                UserFormData.put("Benefits Included " , banifitsincluded.getText().toString());
-//                UserFormData.put("Contract Duration " , contractduration.getText().toString());
-//                UserFormData.put(" Experience With the Placement Precess " , expwithplacementprocess.getText().toString());
-//                UserFormData.put(" Satisfaction With the Offer " , satisfactionwithoffer.getText().toString());
-//                UserFormData.put("Additional Comments " , additionalcomments.getText().toString());
-//                UserFormData.put(" Additional Notes " , "");
-//                UserFormData.put(" Additional Information " , additionalinfo.getText().toString());
-
-
-                // Add more strings as needed
-
-                // Create a unique file name with timestamp
+                   // Create a unique file name with timestamp
                 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
                 pdfFileName = "Form_" + timeStamp + ".pdf";
 
@@ -247,6 +206,25 @@ public class uploaddocuments_activity extends AppCompatActivity {
                     document.add(new Paragraph("Form Data"));
                     document.add(new Paragraph("Investigator name: " + Investigatorname.getText().toString()));
                     document.add(new Paragraph("Investigator id : " + Investigatorid.getText().toString()));
+                    document.add(new Paragraph("Type of placement : " + typeofplacement.getText().toString()));
+                    document.add(new Paragraph("Sallary Offered : " + salaryoffered.getText().toString()));
+                    document.add(new Paragraph("Benifits Included : " + banifitsincluded.getText().toString()));
+                    document.add(new Paragraph("Contract Duration : " + contractduration.getText().toString()));
+                    document.add(new Paragraph("Experience with the placement process : " + expwithplacementprocess.getText().toString()));
+                    document.add(new Paragraph("Satisfaction with the offer : " + satisfactionwithoffer.getText().toString()));
+                    document.add(new Paragraph("Additional comments : " + additionalcomments.getText().toString()));
+                    document.add(new Paragraph("Additional Information : " + additionalinfo.getText().toString()));
+                    document.add(new Paragraph("Types of documents : " + typesofdocuments.getText().toString()));
+                    document.add(new Paragraph("Candidate name : " + candidatename.getText().toString()));
+                    document.add(new Paragraph("Date of investigation : " + dateofinvestigation.getText().toString()));
+                    document.add(new Paragraph("Candidate contact information : " + candidatecontactinfo.getText().toString()));
+                    document.add(new Paragraph("Educational background : " + educationalbackground.getText().toString()));
+                    document.add(new Paragraph("Description of evidance : " + descriptionofevidence.getText().toString()));
+                    document.add(new Paragraph("Company name : " + companyname.getText().toString()));
+                    document.add(new Paragraph("Position offered : " + positionoffered.getText().toString()));
+                    document.add(new Paragraph("Date of offer : " + dateofoffer.getText().toString()));
+                    document.add(new Paragraph("Location of placement : " + locationofplacement.getText().toString()));
+
                     // Add more fields as needed
 
                     // Close the document

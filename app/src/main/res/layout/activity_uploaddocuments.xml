@@ -481,17 +481,17 @@
 
 
 
-        <Button
-            android:id="@+id/makepdf"
-            android:layout_width="210dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="75dp"
-            android:backgroundTint="@color/white"
-            android:text="Make PDF"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            app:cornerRadius="2dp" />
+<!--        <Button-->
+<!--            android:id="@+id/makepdf"-->
+<!--            android:layout_width="210dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginStart="75dp"-->
+<!--            android:backgroundTint="@color/white"-->
+<!--            android:text="Make PDF"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="15sp"-->
+<!--            app:cornerRadius="2dp" />-->
 
         <Button
             android:id="@+id/submit"

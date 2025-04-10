@@ -17,12 +17,16 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import java.io.File;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 public class ViewDocumentsActivity extends AppCompatActivity {
 
     private ListView pdfListView;
     private ArrayList<String> pdfFileNames = new ArrayList<>();
+    private ArrayList<String> pdfFileHashes = new ArrayList<>();
     private ArrayList<File> pdfFiles = new ArrayList<>();
     private static final int STORAGE_PERMISSION_CODE = 101;
 
@@ -49,13 +53,14 @@ public class ViewDocumentsActivity extends AppCompatActivity {
                 if (file.getName().endsWith(".pdf")) {
                     pdfFileNames.add(file.getName());
                     pdfFiles.add(file);
+                    pdfFileHashes.add(generateHash(file.getName()));
                 }
             }
         }
     }
 
     private void setupListView() {
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pdfFileNames);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pdfFileNames )  ;
         pdfListView.setAdapter(adapter);
 
         pdfListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -75,7 +80,7 @@ public class ViewDocumentsActivity extends AppCompatActivity {
                     pdfFile);
 
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setDataAndType(pdfUri, "application/pdf");
+            intent.setDataAndType(pdfUri, "application/ pdf");
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); // Grant permission to the PDF viewer
             intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
             startActivity(intent);
@@ -104,4 +109,32 @@ public class ViewDocumentsActivity extends AppCompatActivity {
 //            Toast.makeText(this, "Permission denied. Cannot access PDFs.", Toast.LENGTH_LONG).show();
 //        }
 //    }
+
+
+    // This is the hash generator function
+    public static String generateHash(String data) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256"); // Using SHA-256
+            byte[] hashBytes = digest.digest(data.getBytes()); // Convert string to bytes & hash it
+
+            // Convert byte array to a hexadecimal string
+            BigInteger no = new BigInteger(1, hashBytes);
+            String hash = no.toString(16);
+
+            // Padding with leading zeros if required
+            while (hash.length() < 64) {
+                hash = "0" + hash;
+            }
+
+            return hash;
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
+
+
+
 }
